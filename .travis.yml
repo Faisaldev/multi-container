@@ -10,7 +10,7 @@ after_success:
   - docker build -t faisaldev79/multi-nginx ./nginx
   - docker build -t faisaldev79/multi-server ./server
   - docker build -t faisaldev79/multi-worker ./worker
-  - docker login -u="$DOCKER_ID" -password="$DOCKER_PWD"
+  - echo "DOCKER_PWD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push faisaldev79/multi-client
   - docker push faisaldev79/multi-nginx
   - docker push faisaldev79/multi-server
